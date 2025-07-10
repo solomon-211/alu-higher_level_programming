@@ -1,5 +1,4 @@
 #!/usr/bin/python3
 class Square:
-    def __init__(self):
-        
-        self.dict_ = {}
+    """An empty class that defines a square."""
+    pass
