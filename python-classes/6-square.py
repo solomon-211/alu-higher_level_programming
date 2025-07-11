@@ -53,11 +53,7 @@ class Square:
         if self.__size == 0:
             print()
             return
-            
-        # Print vertical offset (position[1] new lines)
         for i in range(self.__position[1]):
             print()
-        
-        # Print the square with horizontal offset (position[0] spaces)
         for i in range(self.__size):
             print(" " * self.__position[0] + "#" * self.__size)
