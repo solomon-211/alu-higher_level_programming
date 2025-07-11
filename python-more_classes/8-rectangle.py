@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """Rectangle class with dimensions, display, and comparison features."""
 
+
 class Rectangle:
     """Represents a rectangle with width, height, and comparison methods."""
-    
+
     number_of_instances = 0
     print_symbol = '#'
 
@@ -46,18 +47,22 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
-        """Return 2*(width + height) or 0 if either dimension is 0."""
-        return 2 * (self.__width + self.__height) if self.__width and self.__height else 0
+        """Return perimeter or 0 if either dimension is 0."""
+        if not self.__width or not self.__height:
+            return 0
+        return 2 * (self.__width + self.__height)
 
     def __str__(self):
         """Return string representation using print_symbol."""
         if not self.__width or not self.__height:
             return ""
-        return '\n'.join([str(self.print_symbol) * self.__width] * self.__height)
+        symbol_line = str(self.print_symbol) * self.__width
+        return '\n'.join([symbol_line for _ in range(self.__height)])
 
     def __repr__(self):
         """Return string that can recreate the instance."""
-        return f"{self.__class__.__name__}({self.__width}, {self.__height})"
+        return (f"{self.__class__.__name__}"
+                f"({self.__width}, {self.__height})")
 
     def __del__(self):
         """Decrement instance count and print deletion message."""
