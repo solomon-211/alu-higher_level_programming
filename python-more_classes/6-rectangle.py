@@ -48,13 +48,16 @@ class Rectangle:
 
     def perimeter(self):
         """Return the perimeter, or 0 if width/height is 0."""
-        return 2 * (self.__width + self.__height) if self.__width and self.__height else 0
+        if not self.__width or not self.__height:
+            return 0
+        return 2 * (self.__width + self.__height)
 
     def __str__(self):
         """Return printable representation using '#' characters."""
         if not self.__width or not self.__height:
             return ""
-        return "\n".join(["#" * self.__width] * self.__height)
+        return "\n".join(["#" * self.__width
+                         for _ in range(self.__height)])
 
     def __repr__(self):
         """Return formal string representation for recreation."""
