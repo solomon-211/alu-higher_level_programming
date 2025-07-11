@@ -4,7 +4,7 @@
 
 class Rectangle:
     """Represents a rectangle with dimensions and customizable display."""
-    
+
     number_of_instances = 0
     print_symbol = '#'
 
@@ -48,14 +48,16 @@ class Rectangle:
 
     def perimeter(self):
         """Return perimeter or 0 if either dimension is 0."""
-        return 0 if 0 in (self.__width, self.__height) \
-               else 2 * (self.__width + self.__height)
+        if 0 in (self.__width, self.__height):
+            return 0
+        return 2 * (self.__width + self.__height)
 
     def __str__(self):
         """Return string of rectangle using print_symbol."""
         if 0 in (self.__width, self.__height):
             return ""
-        return '\n'.join([str(self.print_symbol) * self.__width] * self.__height)
+        pattern = str(self.print_symbol) * self.__width
+        return '\n'.join([pattern for _ in range(self.__height)])
 
     def __repr__(self):
         """Return string representation for eval()."""
