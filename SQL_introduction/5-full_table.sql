@@ -1,15 +1,11 @@
--- Task: Show the structure of first_table without DESCRIBE/EXPLAIN
+-- Task: Show the complete CREATE TABLE statement for first_table
 
--- Query to get table structure from information_schema
+-- Query to get the full table creation syntax
 SELECT 
-    COLUMN_NAME, 
-    COLUMN_TYPE, 
-    IS_NULLABLE, 
-    COLUMN_KEY, 
-    COLUMN_DEFAULT, 
-    EXTRA
+    TABLE_NAME,
+    CREATE_TABLE
 FROM 
-    information_schema.COLUMNS
+    information_schema.TABLES
 WHERE 
     TABLE_SCHEMA = DATABASE()
-    AND TABLE_NAME = 'first_table';
+    AND TABLE_NAME = 'first_table'\G
