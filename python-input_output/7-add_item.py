@@ -18,3 +18,4 @@ items.extend(sys.argv[1:])
 
 # Save updated list
 save_to_json_file(items, filename)
+
