@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script to add command-line arguments to a JSON file list."""
+"""Script to add command-line arguments to a JSON file list"""
 
 import sys
 import os
