@@ -1,8 +1,13 @@
 #!/usr/bin/python3
-"""Function to convert class attributes to JSON-serializable dictionary."""
-
+"""Module containing class_to_json function for serialization."""
 
 def class_to_json(obj):
-    """Return dictionary description for JSON serialization of an object.
+    """Returns dictionary description for JSON serialization of an object.
+
+    Args:
+        obj: Instance of a class with serializable attributes
+
+    Returns:
+        dict: Dictionary containing object's serializable attributes
     """
     return obj.__dict__
