@@ -1,28 +1,17 @@
--- Task: Show the complete CREATE TABLE statement for first_table
+-- Script to print full description of first_table from hbtn_0c_0 database
+-- Usage: mysql -u username -p hbtn_0c_0 < script_name.sql
 
--- Query to get the full table creation syntax
-SELECT CONCAT(
-    TABLE_NAME,
-    'CREATE TABLE `',
-    TABLE_NAME,
-    '`(\n',
-    GROUP_CONCAT(
-        '`', COLUMN_NAME, '` ', COLUMN_TYPE,
-        IF(IS_NULLABLE = 'NO', ' NOT NULL', ''),
-        IF(COLUMN_DEFAULT IS NOT NULL, CONCAT(' DEFAULT ', QUOTE(COLUMN_DEFAULT)), ''),
-        IF(EXTRA = 'auto_increment', ' AUTO_INCREMENT', ''),
-        IF(COLUMN_KEY = 'PRI', ' PRIMARY KEY', '')
-        ORDER BY ORDINAL_POSITION
-        SEPARATOR ',\n'
-    ),
-    '\n) ENGINE=', ENGINE,
-    ' DEFAULT CHARSET=', CHARACTER_SET_NAME,
-    ' COLLATE=', TABLE_COLLATION
-) AS Table_Definition
-FROM information_schema.TABLES t
-JOIN information_schema.COLUMNS c
-    ON t.TABLE_SCHEMA = c.TABLE_SCHEMA
-    AND t.TABLE_NAME = c.TABLE_NAME
-WHERE t.TABLE_SCHEMA = DATABASE()
-    AND t.TABLE_NAME = 'first_table'
-GROUP BY t.TABLE_NAME, t.ENGINE, t.CHARACTER_SET_NAME, t.TABLE_COLLATION;
+SELECT 
+    COLUMN_NAME,
+    COLUMN_TYPE,
+    IS_NULLABLE,
+    COLUMN_KEY,
+    COLUMN_DEFAULT,
+    EXTRA
+FROM 
+    INFORMATION_SCHEMA.COLUMNS 
+WHERE 
+    TABLE_SCHEMA = 'hbtn_0c_0' 
+    AND TABLE_NAME = 'first_table'
+ORDER BY 
+    ORDINAL_POSITION;
