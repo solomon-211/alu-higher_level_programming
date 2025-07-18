@@ -1,5 +1,17 @@
 #!/usr/bin/python3
-"""Add command-line arguments to a JSON file."""
+"""
+Module for adding items to a JSON file.
+
+This module provides functionality to add command-line arguments as items
+to a JSON file. It loads existing items from the file (if it exists),
+adds new items from command-line arguments, and saves the updated list
+back to the file.
+
+Usage:
+    python3 add_item.py item1 item2 item3
+
+The items will be added to 'add_item.json' file.
+"""
 
 import os
 import sys
