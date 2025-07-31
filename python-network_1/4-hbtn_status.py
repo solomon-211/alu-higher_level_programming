@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Fetches https://alu-intranet.hbtn.io/status using requests package
-and displays the response body with specific formatting.
+Fetches http://0.0.0.0:5050/status using requests package
+and displays the formatted response body.
 """
 
 import requests
 
 if __name__ == "__main__":
-    response = requests.get('https://alu-intranet.hbtn.io/status')
+    response = requests.get('http://0.0.0.0:5050/status')
     print("Body response:")
     print("\t- type:", type(response.text))
     print("\t- content:", response.text)
