@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Fetches https://alu-intranet.hbtn.io/status using urllib package
-and displays the response body with specific formatting.
+Fetches http://0.0.0.0:5050/status using urllib package
+and displays the formatted response body.
 """
 
 from urllib.request import urlopen
 
 if __name__ == "__main__":
-    url = "https://alu-intranet.hbtn.io/status"
+    url = "http://0.0.0.0:5050/status"
     with urlopen(url) as response:
         body = response.read()
         print("Body response:")
